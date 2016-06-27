@@ -45,6 +45,7 @@ final class NevarTest extends \PHPUnit_Framework_TestCase
             [STDIN, 'resource of type stream'],
             [STDOUT, 'resource of type stream'],
 
+            ['', 'empty string'],
             ['string', 'string'],
             ['strlen', 'callable string'],
             ['Thunder\\Nevar\\Tests\\Fake\\FakeClass::method', 'callable string'],

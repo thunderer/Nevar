@@ -8,36 +8,35 @@ final class Nevar
 {
     public static function describe($var)
     {
-        $type = gettype($var);
-
-        if('object' === $type) {
+        if(is_object($var) || $var instanceof \__PHP_Incomplete_Class) {
             return 'object of class '.get_class($var);
-        } elseif('resource' === $type) {
+        } elseif(is_resource($var)) {
             return 'resource of type '.get_resource_type($var);
-        } elseif('array' === $type) {
+        } elseif(is_array($var)) {
             if(empty($var)) { return 'empty array'; }
             if(is_callable($var)) { return 'callable array'; };
             if(array_filter($var, 'is_int', ARRAY_FILTER_USE_KEY)) { return 'indexed array'; }
 
             return 'associative array';
-        } elseif('integer' === $type) {
+        } elseif(is_int($var)) {
             if($var < 0) { return 'negative integer'; }
             if($var > 0) { return 'positive integer'; }
 
             return 'zero integer';
-        } elseif('double' === $type) {
+        } elseif(is_float($var)) {
             if(is_infinite($var)) { return 'infinite float'; }
             if(is_nan($var)) { return 'invalid float'; }
             if($var < 0) { return 'negative float'; }
             if($var > 0) { return 'positive float'; }
 
             return 'zero float';
-        } elseif('string' === $type) {
+        } elseif(is_string($var)) {
+            if(empty($var)) { return 'empty string'; }
             if(is_callable($var)) { return 'callable string'; }
             if(is_numeric($var)) { return 'numeric string'; }
 
             return 'string';
-        } elseif('boolean' === $type) {
+        } elseif(is_bool($var)) {
             return true === $var ? 'boolean true' : 'boolean false';
         } else {
             return 'unknown type';

@@ -8,13 +8,13 @@ This library is available as `thunderer/nevar` on Packagist.
 
 # Usage
 
-Call `Nevar::describe()` method that returns string with the description or `null` if its type can't be matched:
+Call `Nevar::describe()` method that returns string with the description or `'unknown type'` if its type can't be matched:
 
 ```php
 use Thunder\Nevar\Nevar;
 
 assert('negative integer', Nevar::describe(-12));
-assert('callable string', Nevar::describe('strlen'));
+assert('empty string', Nevar::describe(''));
 assert('callable string', Nevar::describe('strlen'));
 ```
 
@@ -27,7 +27,7 @@ For given variable types, `Nevar` is able to extract following information:
 | array   | empty, indexed, associative, callable       |
 | float   | zero, positive, negarive, infinite, invalid |
 | integer | zero, positive, negative                    |
-| string  | callable, numeric                           |
+| string  | empty, callable, numeric                    |
 | boolean | true, false                                 |
 | object  | class                                       |
 | stream  | type                                        |
