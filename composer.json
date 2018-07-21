@@ -19,7 +19,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Thunder\\Nevar\\": "src",
+            "Thunder\\Nevar\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "Thunder\\Nevar\\Tests\\": "tests"
         }
     }
