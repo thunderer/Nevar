@@ -3,11 +3,12 @@ namespace Thunder\Nevar\Tests;
 
 use Thunder\Nevar\Tests\Fake\FakeClass;
 use Thunder\Nevar\Nevar;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author Tomasz Kowalczyk <tomasz@kowalczyk.cc>
  */
-final class NevarTest extends \PHPUnit_Framework_TestCase
+final class NevarTest extends TestCase
 {
     /**
      * @dataProvider provideVariables
